@@ -87,9 +87,45 @@ public class GenericDemo {
         p1.printInfo(e);
     }
 }
+```
+
+- 제네릭의 제한
+  - 제네릭 타입에 무분별한 데이터가 들어오는것을 방지하기 위함
+  - 사용방법 : 추상클래스, 인터페이스
+  
+```
+
+package javastudy;
+
+// 추상클래스도 가능
+interface Info {
+    int getLevel();
+}
+
+class EmployeeInfo implements Info {
+    public int rank;
+    EmployeeInfo(int rank) { this.rank = rank; }
+    @Override
+    public int getLevel() {
+        return this.rank;
+    }
+}
+
+// 인터페이스이지만 extends를 사용한다 (상속 개념과는 조금 다름)
+class Person<T extends Info> {
+    public T info;
+    Person(T info) {
+        this.info = info;
+        info.getLevel();
+    }
+}
+
+public class GenericDemo1 {
+    public static void main(String[] args) {
+        Person<EmployeeInfo> p1 = new Person<EmployeeInfo>(new EmployeeInfo(1));
+    }
+}
 
 
 ```
-
-
 
