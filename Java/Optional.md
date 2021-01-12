@@ -43,6 +43,8 @@ public void ofNullableTest() {
 
 #### orElse, orElseGet으로 Optional 값 가져오기
 - if에서 null값이 아닌 경우의 처리를 else 키워드 이하의 코드로 해결하지만 Optional 에서는 orElse로 간단하게 해결할 수 있습니다.
+- orElse : null이든 아니든 항상 호출된다.
+- orElseGet : null일 때만 호출된다.
 
 
 
